@@ -15,11 +15,14 @@ export const FUNDRAISING_CONTRACT = {
 } as const;
 
 const sbtcMainnetAddress = "SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4";
+const sbtcTestnetAddress = "ST1XD1KNHQR4J523S35T6636G2A79C1KTV1T551Z";
 
 export const SBTC_CONTRACT = {
   address:
     process.env.NEXT_PUBLIC_STACKS_NETWORK === "mainnet"
       ? sbtcMainnetAddress
+      : process.env.NEXT_PUBLIC_STACKS_NETWORK === "testnet"
+      ? sbtcTestnetAddress
       : DEPLOYER_ADDRESS,
   name: "sbtc-token",
 } as const;

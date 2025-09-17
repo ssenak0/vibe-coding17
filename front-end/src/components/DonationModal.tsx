@@ -125,10 +125,10 @@ export default function DonationModal({
 
       const doSuccessToast = (txid: string) => {
         toast({
-          title: "Thank you!",
+          title: "Thank you for lighting up a life!",
           description: (
             <Flex direction="column" gap="4">
-              <Box>Processing donation of ${amount}.</Box>
+              <Box>Your support makes a world of difference. Processing donation of ${amount}.</Box>
               <Box fontSize="xs">
                 Transaction ID: <strong>{txid}</strong>
               </Box>
@@ -179,7 +179,7 @@ export default function DonationModal({
     <Modal isOpen={isOpen} onClose={onClose} size="full">
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Make a Contribution</ModalHeader>
+        <ModalHeader>Be a Beacon of Hope</ModalHeader>
         <ModalCloseButton />
         <ModalBody pb="8">
           <Flex direction="column" gap="3">
@@ -261,7 +261,7 @@ export default function DonationModal({
                           variant={
                             selectedAmount === amount ? "solid" : "outline"
                           }
-                          colorScheme="blue"
+                          colorScheme="teal"
                           onClick={() => handlePresetClick(amount)}
                         >
                           ${amount}
@@ -285,7 +285,9 @@ export default function DonationModal({
 
                     <Flex direction="column" gap="1">
                       <Button
-                        colorScheme="green"
+                        bgGradient="linear(to-r, #4FD1C5, #805AD5)"
+                        _hover={{ opacity: 0.9 }}
+                        color="white"
                         size="lg"
                         onClick={handleSubmit}
                         isDisabled={

@@ -1,12 +1,18 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #4FD1C5; /* teal */
+  --secondary: #805AD5; /* purple */
+  --gradient: linear-gradient(90deg, #4FD1C5, #805AD5);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #4FD1C5;
+    --secondary: #805AD5;
+    --gradient: linear-gradient(90deg, #4FD1C5, #805AD5);
   }
 }
 
@@ -19,9 +25,22 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility classes for rounded cards and soft shadows */
+.card {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.btn-gradient {
+  background: var(--gradient);
+  color: #ffffff;
+  border-radius: 999px;
 }
 
 * {

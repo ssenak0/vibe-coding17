@@ -105,7 +105,7 @@
       )
       err-campaign-ended
     )
-    (try! (contract-call? 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token
+    (try! (contract-call? 'ST1XD1KNHQR4J523S35T6636G2A79C1KTV1T551Z.sbtc-token
       transfer amount contract-caller (as-contract tx-sender) none
     ))
     (map-set sbtc-donations tx-sender
@@ -141,7 +141,7 @@
         true
       )
       (if (> total-sbtc-amount u0)
-        (try! (contract-call? 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token
+        (try! (contract-call? 'ST1XD1KNHQR4J523S35T6636G2A79C1KTV1T551Z.sbtc-token
           transfer total-sbtc-amount (as-contract tx-sender)
           (var-get beneficiary) none
         ))
@@ -171,7 +171,7 @@
     (map-delete stx-donations tx-sender)
     (if (> sbtc-amount u0)
       (begin
-        (as-contract (try! (contract-call? 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token
+        (as-contract (try! (contract-call? 'ST1XD1KNHQR4J523S35T6636G2A79C1KTV1T551Z.sbtc-token
           transfer sbtc-amount tx-sender contributor none
         )))
       )

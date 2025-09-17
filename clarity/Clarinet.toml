@@ -10,11 +10,23 @@ contract_id = 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token'
 
 [[project.requirements]]
 contract_id = 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-deposit'
-[contracts.fundraising]
 
+
+[contracts.fundraising]
 path = 'contracts/fundraising.clar'
 clarity_version = 3
 epoch = 3.0
 
 [repl.analysis]
 passes = []
+
+
+[testnet.requirements.sbtc-token]
+contract_id = "ST1XD1KNHQR4J523S35T6636G2A79C1KTV1T551Z.sbtc-token"
+
+[testnet.requirements.sbtc-deposit]
+contract_id = "ST1XD1KNHQR4J523S35T6636G2A79C1KTV1T551Z.sbtc-deposit"
+
+[testnet.requirements.sbtc-registry]
+contract_id = "ST1XD1KNHQR4J523S35T6636G2A79C1KTV1T551Z.sbtc-registry"
+ 

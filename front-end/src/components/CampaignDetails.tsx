@@ -23,7 +23,7 @@ import {
 } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon, InfoIcon } from "@chakra-ui/icons";
 import { useContext, useEffect, useState } from "react";
-import { CAMPAIGN_SUBTITLE, CAMPAIGN_TITLE } from "@/constants/campaign";
+import { CAMPAIGN_SUBTITLE, CAMPAIGN_TITLE, THEME_COLORS } from "@/constants/campaign";
 import StyledMarkdown from "./StyledMarkdown";
 import { useCampaignInfo, useExistingDonation } from "@/hooks/campaignQueries";
 import { useCurrentBtcBlock } from "@/hooks/chainQueries";
@@ -121,9 +121,23 @@ export default function CampaignDetails({
   return (
     <Container maxW="container.xl" py="8">
       <Flex direction="column" gap="6">
-        <Flex direction="column" gap="1">
-          <Heading>{CAMPAIGN_TITLE}</Heading>
-          <Text>{CAMPAIGN_SUBTITLE}</Text>
+        <Flex direction="column" gap="3">
+          <Heading color={THEME_COLORS.secondary}>{CAMPAIGN_TITLE}</Heading>
+          <Text color="gray.600">{CAMPAIGN_SUBTITLE}</Text>
+          <SimpleGrid columns={{ base: 3, md: 3 }} spacing={4} maxW="md">
+            <Flex align="center" gap="2" bg="white" p="2" borderRadius="lg" borderWidth="1px">
+              <Box as="span" fontSize="xl">💬</Box>
+              <Text fontSize="sm">Anonymous Chat</Text>
+            </Flex>
+            <Flex align="center" gap="2" bg="white" p="2" borderRadius="lg" borderWidth="1px">
+              <Box as="span" fontSize="xl">🛟</Box>
+              <Text fontSize="sm">Crisis Resources</Text>
+            </Flex>
+            <Flex align="center" gap="2" bg="white" p="2" borderRadius="lg" borderWidth="1px">
+              <Box as="span" fontSize="xl">🧑‍⚕️</Box>
+              <Text fontSize="sm">Counselor Access</Text>
+            </Flex>
+          </SimpleGrid>
         </Flex>
 
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8} alignItems="start">
@@ -267,8 +281,12 @@ export default function CampaignDetails({
                     <Progress
                       value={progress}
                       size="lg"
-                      colorScheme="green"
                       borderRadius="full"
+                      sx={{
+                        ".chakra-progress__filled-track": {
+                          bg: `linear-gradient(90deg, ${THEME_COLORS.primary}, ${THEME_COLORS.secondary})`,
+                        },
+                      }}
                     />
                   </Box>
 
@@ -321,13 +339,16 @@ export default function CampaignDetails({
                     <Flex direction="column" gap="4">
                       <Button
                         size="lg"
-                        colorScheme="green"
                         width="full"
+                        bgGradient={`linear(to-r, ${THEME_COLORS.primary}, ${THEME_COLORS.secondary})`}
+                        _hover={{ opacity: 0.9 }}
+                        color="white"
+                        borderRadius="full"
                         onClick={() => {
                           setIsDonationModalOpen(true);
                         }}
                       >
-                        Contribute Now
+                        Contribute Now 💜
                       </Button>
                       <Box fontSize="xs">
                         <Box mb="2">
